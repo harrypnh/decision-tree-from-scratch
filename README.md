@@ -3,7 +3,7 @@ Decision Tree Algorithm written in Python with Numpy and Pandas.
 ## 1. Overview of the Implemention
 The Decision Tree algorithm implemented here can accommodate customisations in the maximum decision tree depth, the minimum sample size, the number of random features if the users want to choose randomly some `d` features without replacement when splitting a node, and the number of random splits if the users want to split a node for some `s` times and choose the best split among these `s` splits instead of choosing the best split among all potential splits of the node.
 
-The algorithm is not able to work with datasets containing categorical data natively, so it requires those datasets to be preprocessed such as converting ordinal data into integers. After converting all categorical string values in a dataset to integers, the users can use that dataset with the algorithm.
+The algorithm is not able to work with datasets containing categorical data natively, so it requires those datasets to be preprocessed such as converting ordinal data into integers. After converting all categorical string values in a dataset to integers, a user can use that dataset with the algorithm.
 ## 2. Testing Specifications
 - The depth of the decision tree starts at 1 for the first time and increases by 1 until the accuracy rate on the training dataset reaches 100%.
 - NO RANDOMNESS. A node is split at its best split, and all features of the dataset will be considered when determining a node’s best split from all of its potential splits.

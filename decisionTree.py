@@ -124,3 +124,7 @@ def classifySample(sample, decisionTree):
 def decisionTreePredictions(dataFrame, decisionTree):
     predictions = dataFrame.apply(classifySample, axis = 1, args = (decisionTree,))
     return predictions
+
+def calculateAccuracy(predictedResults, category):
+    resultCorrect = predictedResults == category
+    return resultCorrect.mean()

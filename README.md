@@ -1,5 +1,5 @@
 # Decision Tree From Scratch
-Decision Tree Algorithm written in Python with NumPy and Pandas.
+Decision Tree Algorithm written in Python using NumPy and Pandas.
 ## 1. Overview of the Implemention
 The Decision Tree algorithm implemented here can accommodate customisations in the maximum decision tree depth, the minimum sample size, the number of random features if the users want to choose randomly some `d` features without replacement when splitting a node, and the number of random splits if the users want to split a node for some `s` times and choose the best split among these `s` splits instead of choosing the best split among all potential splits of the node.
 

@@ -35,15 +35,15 @@ decision-tree-from-scratch/
 "safety": "low" -> 1, "med" -> 2, "high" -> 3
 ```
 ## 4. Results on UCI Breast Cancer Wisconsin (Diagnostic) Dataset
-Overfitting can be observed when the depth of the decision tree changes from 3 to 4, in which the testing accuracy decreases from 95.10% to 94.41% while the training accuracy increases from 97.65% to 98.36%.
+Overfitting can be observed when the depth of the decision tree changes from 4 to 5, in which the testing accuracy decreases from 92.96% to 92.25% while the training accuracy increases from 98.13% to 99.30%.
 ```
-maxDepth = 1: accTest = 88.11%, accTrain = 92.25%, buildTime = 1.36s
-maxDepth = 2: accTest = 90.21%, accTrain = 92.72%, buildTime = 2.49s
-maxDepth = 3: accTest = 95.10%, accTrain = 97.65%, buildTime = 3.35s
-maxDepth = 4: accTest = 94.41%, accTrain = 98.36%, buildTime = 4.09s
-maxDepth = 5: accTest = 95.80%, accTrain = 99.30%, buildTime = 4.23s
-maxDepth = 6: accTest = 95.80%, accTrain = 99.77%, buildTime = 4.09s
-maxDepth = 7: accTest = 95.80%, accTrain = 100.00%, buildTime = 4.04s
+maxDepth = 1: accTest = 88.73%, accTrain = 92.51%, buildTime = 2.99s
+maxDepth = 2: accTest = 88.73%, accTrain = 93.68%, buildTime = 5.37s
+maxDepth = 3: accTest = 92.96%, accTrain = 97.66%, buildTime = 6.68s
+maxDepth = 4: accTest = 92.96%, accTrain = 98.13%, buildTime = 6.85s
+maxDepth = 5: accTest = 92.25%, accTrain = 99.30%, buildTime = 6.94s
+maxDepth = 6: accTest = 92.96%, accTrain = 99.77%, buildTime = 6.89s
+maxDepth = 7: accTest = 92.96%, accTrain = 100.00%, buildTime = 6.98s
 ```
 ## 5. Results on UCI Car Evaluation Dataset
 Overfitting can be observed when the depth of the decision tree changes from 6 to 7, in which the testing accuracy decreases from 93.26% to 91.91% while the training accuracy increases from 93.55% to 94.54%.

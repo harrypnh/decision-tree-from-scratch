@@ -80,8 +80,7 @@ def determineBestSplit(data, potentialSplits, randomSplits = None):
                 bestSplitValue = randomSplitValue
     return bestSplitColumn, bestSplitValue
 
-def buildDecisionTree(dataFrame, currentDepth = 0, minSampleSize = 2,
-                      maxDepth = 1000, randomAttributes = None, randomSplits = None):
+def buildDecisionTree(dataFrame, currentDepth = 0, minSampleSize = 2, maxDepth = 1000, randomAttributes = None, randomSplits = None):
     if currentDepth == 0:
         global COLUMN_HEADERS
         COLUMN_HEADERS = dataFrame.columns

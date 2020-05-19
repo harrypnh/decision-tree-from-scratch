@@ -8,7 +8,7 @@ The algorithm is not able to work with datasets containing categorical data nati
 ```
 decision-tree-from-scratch/
 ├── dataset_files/
-│   ├── breast_cancer.csv   # UCI Breast Cancer Wisconsin Diagnostic Dataset
+│   ├── breast_cancer.csv   # UCI Breast Cancer Wisconsin (Diagnostic) Dataset
 │   └── car_evaluation.csv  # UCI Car Evaluation Dataset
 │
 ├── decisionTree.py         # Decision Tree Algorithm

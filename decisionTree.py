@@ -2,15 +2,13 @@ import numpy
 import pandas
 import random
 
-def loadData(xTrainFile, xTestFile, yTrainFile, yTestFile):
-    dataFrameTrain = pandas.read_csv(xTrainFile)
-    dataFrameTest = pandas.read_csv(xTestFile)
-    dataLabelTrain = pandas.read_csv(yTrainFile)
-    dataLabelTest = pandas.read_csv(yTestFile)
-    dataFrameTrain = pandas.concat([dataFrameTrain, dataLabelTrain], axis = 1)
-    dataFrameTest = pandas.concat([dataFrameTest, dataLabelTest], axis = 1)
-    dataFrameTrain = dataFrameTrain.rename(columns = {dataFrameTrain.columns[-1]: "category"})
-    dataFrameTest = dataFrameTest.rename(columns = {dataFrameTest.columns[-1]: "category"})
+def trainTestSplit(dataFrame, testSize):
+    if isinstance(testSize, float):
+        testSize = round(testSize * len(dataFrame))
+    indices = dataFrame.index.tolist()
+    testIndices = random.sample(population = indices, k = testSize)
+    dataFrameTest = dataFrame.loc[testIndices]
+    dataFrameTrain = dataFrame.drop(testIndices)
     return dataFrameTrain, dataFrameTest
 
 def checkPurity(data):

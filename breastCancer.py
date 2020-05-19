@@ -1,12 +1,12 @@
 import random
+import pandas
 import time
-from decisionTree import loadData, buildDecisionTree, decisionTreePredictions, calculateAccuracy
+from decisionTree import trainTestSplit, buildDecisionTree, decisionTreePredictions, calculateAccuracy
 
-xTrainFile = "dataset_files/cancer_X_train.csv"
-xTestFile = "dataset_files/cancer_X_test.csv"
-yTrainFile = "dataset_files/cancer_y_train.csv"
-yTestFile = "dataset_files/cancer_y_test.csv"
-dataFrameTrain, dataFrameTest = loadData(xTrainFile, xTestFile, yTrainFile, yTestFile)
+dataFrame = pandas.read_csv("dataset_files/breast_cancer.csv")
+dataFrame = dataFrame.drop("id", axis = 1)
+dataFrame = dataFrame[dataFrame.columns.tolist()[1: ] + dataFrame.columns.tolist()[0: 1]]
+dataFrameTrain, dataFrameTest = trainTestSplit(dataFrame, testSize = 0.25)
 
 print("Decision Tree - Breast Cancer Dataset")
 

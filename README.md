@@ -28,8 +28,8 @@ decision-tree-from-scratch/
 "lug_boot": "small" -> 1, "med" -> 2, "big" -> 3
 "safety": "low" -> 1, "med" -> 2, "high" -> 3
 ```
-- The train-test ratio of the Breast Cancer Dataset is 3:1.
-- The train-test ratio of the Car Evaluation Dataset is 4:1.
+- The train-test ratio of the Breast Cancer Dataset is set at 3:1.
+- The train-test ratio of the Car Evaluation Dataset is set at 4:1.
 ## 4. Results on UCI Breast Cancer Wisconsin (Diagnostic) Dataset
 Overfitting can be observed when the depth of the decision tree changes from 4 to 5, in which the testing accuracy decreases from 92.96% to 92.25% while the training accuracy increases from 98.13% to 99.30%.
 ```

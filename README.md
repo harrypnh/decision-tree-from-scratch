@@ -28,6 +28,8 @@ decision-tree-from-scratch/
 "lug_boot": "small" -> 1, "med" -> 2, "big" -> 3
 "safety": "low" -> 1, "med" -> 2, "high" -> 3
 ```
+- The train-test ratio of the Breast Cancer Dataset is 3:1.
+- The train-test ratio of the Car Evaluation Dataset is 4:1.
 ## 4. Results on UCI Breast Cancer Wisconsin (Diagnostic) Dataset
 Overfitting can be observed when the depth of the decision tree changes from 4 to 5, in which the testing accuracy decreases from 92.96% to 92.25% while the training accuracy increases from 98.13% to 99.30%.
 ```
@@ -40,19 +42,20 @@ maxDepth = 6: accTest = 92.96%, accTrain = 99.77%, buildTime = 6.89s
 maxDepth = 7: accTest = 92.96%, accTrain = 100.00%, buildTime = 6.98s
 ```
 ## 5. Results on UCI Car Evaluation Dataset
-Overfitting can be observed when the depth of the decision tree changes from 6 to 7, in which the testing accuracy decreases from 93.26% to 91.91% while the training accuracy increases from 93.55% to 94.54%.
+Overfitting can be observed when the depth of the decision tree changes from 6 to 7, in which the testing accuracy decreases from 93.44% to 92.66% while the training accuracy increases from 90.99% to 93.39%, and when the depth of the decision tree changes from 8 to 9, in which the testing accuracy decreases from 96.14% to 95.95% while the training accuracy increases from 96.86% to 98.68%.
 ```
-maxDepth = 1: accTest = 68.98%, accTrain = 70.47%, buildTime = 0.01s
-maxDepth = 2: accTest = 79.19%, accTrain = 77.17%, buildTime = 0.02s
-maxDepth = 3: accTest = 79.19%, accTrain = 79.16%, buildTime = 0.02s
-maxDepth = 4: accTest = 83.62%, accTrain = 85.69%, buildTime = 0.03s
-maxDepth = 5: accTest = 86.90%, accTrain = 87.26%, buildTime = 0.03s
-maxDepth = 6: accTest = 93.26%, accTrain = 93.55%, buildTime = 0.05s
-maxDepth = 7: accTest = 91.91%, accTrain = 94.54%, buildTime = 0.06s
-maxDepth = 8: accTest = 95.57%, accTrain = 98.35%, buildTime = 0.07s
-maxDepth = 9: accTest = 95.76%, accTrain = 99.09%, buildTime = 0.07s
-maxDepth = 10: accTest = 97.30%, accTrain = 99.83%, buildTime = 0.08s
-maxDepth = 11: accTest = 97.30%, accTrain = 100.00%, buildTime = 0.08s
+maxDepth = 1: accTest = 71.62%, accTrain = 69.34%, buildTime = 0.01s
+maxDepth = 2: accTest = 77.61%, accTrain = 77.85%, buildTime = 0.02s
+maxDepth = 3: accTest = 78.57%, accTrain = 79.42%, buildTime = 0.02s
+maxDepth = 4: accTest = 83.78%, accTrain = 83.14%, buildTime = 0.03s
+maxDepth = 5: accTest = 86.29%, accTrain = 86.69%, buildTime = 0.03s
+maxDepth = 6: accTest = 93.44%, accTrain = 90.99%, buildTime = 0.05s
+maxDepth = 7: accTest = 92.66%, accTrain = 93.39%, buildTime = 0.06s
+maxDepth = 8: accTest = 96.14%, accTrain = 96.86%, buildTime = 0.06s
+maxDepth = 9: accTest = 95.95%, accTrain = 98.68%, buildTime = 0.07s
+maxDepth = 10: accTest = 97.30%, accTrain = 99.42%, buildTime = 0.08s
+maxDepth = 11: accTest = 98.26%, accTrain = 99.92%, buildTime = 0.08s
+maxDepth = 12: accTest = 98.46%, accTrain = 100.00%, buildTime = 0.09s
 ```
 ## 6. References
 1. [Sebastian Mantey's repository](https://github.com/SebastianMantey/Decision-Tree-from-Scratch)

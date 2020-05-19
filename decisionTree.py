@@ -12,8 +12,10 @@ def trainTestSplit(dataFrame, testSize):
     return dataFrameTrain, dataFrameTest
 
 def checkPurity(data):
-    if len(numpy.unique(data[:, -1])) == 1: return True
-    else: return False
+    if len(numpy.unique(data[:, -1])) == 1:
+        return True
+    else:
+        return False
 
 def classifyData(data):
     uniqueClasses, uniqueClassesCounts = numpy.unique(data[:, -1], return_counts = True)
@@ -28,7 +30,8 @@ def getPotentialSplits(data, randomAttributes):
     for column in columnsIndices:
         values = data[:, column]
         uniqueValues = numpy.unique(values)
-        if len(uniqueValues) == 1: potentialSplits[column] = uniqueValues
+        if len(uniqueValues) == 1:
+            potentialSplits[column] = uniqueValues
         else:
             potentialSplits[column] = []
             for i in range(len(uniqueValues)):
@@ -84,10 +87,11 @@ def buildDecisionTree(dataFrame, currentDepth = 0, minSampleSize = 2,
         COLUMN_HEADERS = dataFrame.columns
         data = dataFrame.values
         if randomAttributes != None and randomAttributes <= len(COLUMN_HEADERS) - 1:
-            randomAttributes = random.sample(population = list(range(len(COLUMN_HEADERS) - 1)),
-                                             k = randomAttributes)
-        else: randomAttributes = None
-    else: data = dataFrame
+            randomAttributes = random.sample(population = list(range(len(COLUMN_HEADERS) - 1)), k = randomAttributes)
+        else:
+            randomAttributes = None
+    else:
+        data = dataFrame
     if checkPurity(data) or len(data) < minSampleSize or currentDepth == maxDepth:
         return classifyData(data)
     else:
@@ -95,28 +99,29 @@ def buildDecisionTree(dataFrame, currentDepth = 0, minSampleSize = 2,
         potentialSplits = getPotentialSplits(data, randomAttributes)
         splitColumn, splitValue = determineBestSplit(data, potentialSplits, randomSplits)
         dataBelow, dataAbove = splitData(data, splitColumn, splitValue)
-        if len(dataBelow) == 0 or len(dataAbove) == 0: return classifyData(data)
+        if len(dataBelow) == 0 or len(dataAbove) == 0:
+            return classifyData(data)
         else:
             question = str(COLUMN_HEADERS[splitColumn]) + " <= " + str(splitValue)
             decisionSubTree = {question: []}
-            yesAnswer = buildDecisionTree(dataBelow, currentDepth,
-                                          minSampleSize, maxDepth,
-                                          randomAttributes, randomSplits)
-            noAnswer = buildDecisionTree(dataAbove, currentDepth,
-                                         minSampleSize, maxDepth,
-                                         randomAttributes, randomSplits)
-            if yesAnswer == noAnswer: decisionSubTree = yesAnswer
+            yesAnswer = buildDecisionTree(dataBelow, currentDepth, minSampleSize, maxDepth, randomAttributes, randomSplits)
+            noAnswer = buildDecisionTree(dataAbove, currentDepth, minSampleSize, maxDepth, randomAttributes, randomSplits)
+            if yesAnswer == noAnswer:
+                decisionSubTree = yesAnswer
             else:
                 decisionSubTree[question].append(yesAnswer)
                 decisionSubTree[question].append(noAnswer)
             return decisionSubTree
 
 def classifySample(sample, decisionTree):
-    if not isinstance(decisionTree, dict): return decisionTree
+    if not isinstance(decisionTree, dict):
+        return decisionTree
     question = list(decisionTree.keys())[0]
     attribute, value = question.split(" <= ")
-    if sample[attribute] <= float(value): answer = decisionTree[question][0]
-    else: answer = decisionTree[question][1]
+    if sample[attribute] <= float(value):
+        answer = decisionTree[question][0]
+    else:
+        answer = decisionTree[question][1]
     return classifySample(sample, answer)
 
 def decisionTreePredictions(dataFrame, decisionTree):

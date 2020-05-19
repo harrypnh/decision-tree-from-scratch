@@ -8,14 +8,8 @@ The algorithm is not able to work with datasets containing categorical data nati
 ```
 decision-tree-from-scratch/
 ├── dataset_files/
-│   ├── cancer_X_train.csv  # Breast Cancer Wisconsin (Diagnostic) Training Dataset
-│   ├── cancer_y_train.csv  # Breast Cancer Wisconsin (Diagnostic) Training Labels
-│   ├── cancer_X_test.csv   # Breast Cancer Wisconsin (Diagnostic) Testing Dataset
-│   ├── cancer_y_test.csv   # Breast Cancer Wisconsin (Diagnostic) Testing Labels
-│   ├── car_X_train.csv     # Car Evaluation Training Dataset
-│   ├── car_y_train.csv     # Car Evaluation Training Labels
-│   ├── car_X_test.csv      # Car Evaluation Training Dataset
-│   └── car_y_test.csv      # Car Evaluation Training Labels
+│   ├── breast_cancer.csv   # UCI Breast Cancer Wisconsin Diagnostic Dataset
+│   └── car_evaluation.csv  # UCI Car Evaluation Dataset
 │
 ├── decisionTree.py         # Decision Tree Algorithm
 ├── breastCancer.py         # Training and Testing on Breast Cancer Wisconsin (Diagnostic) Dataset

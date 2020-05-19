@@ -1,36 +1,29 @@
 import random
+import pandas
 import time
-from decisionTree import loadData, buildDecisionTree, decisionTreePredictions, calculateAccuracy
+from decisionTree import trainTestSplit, buildDecisionTree, decisionTreePredictions, calculateAccuracy
 
-xTrainFile = "dataset_files/car_X_train.csv"
-xTestFile = "dataset_files/car_X_test.csv"
-yTrainFile = "dataset_files/car_y_train.csv"
-yTestFile = "dataset_files/car_y_test.csv"
-dataFrameTrain, dataFrameTest = loadData(xTrainFile, xTestFile, yTrainFile, yTestFile)
+dataFrame = pandas.read_csv("dataset_files/car_evaluation.csv")
 
 buyingMapping = {"low": 1, "med": 2, "high": 3, "vhigh": 4}
-dataFrameTrain["buying"] = dataFrameTrain["buying"].map(buyingMapping)
-dataFrameTest["buying"] = dataFrameTest["buying"].map(buyingMapping)
+dataFrame["buying"] = dataFrame["buying"].map(buyingMapping)
 
 maintMapping = {"low": 1, "med": 2, "high": 3, "vhigh": 4}
-dataFrameTrain["maint"] = dataFrameTrain["maint"].map(maintMapping)
-dataFrameTest["maint"] = dataFrameTest["maint"].map(maintMapping)
+dataFrame["maint"] = dataFrame["maint"].map(maintMapping)
 
 doorsMapping = {"2": 2, "3": 3, "4": 4, "5more": 5}
-dataFrameTrain["doors"] = dataFrameTrain["doors"].map(doorsMapping)
-dataFrameTest["doors"] = dataFrameTest["doors"].map(doorsMapping)
+dataFrame["doors"] = dataFrame["doors"].map(doorsMapping)
 
 personsMapping = {"2": 2, "4": 4, "more": 6}
-dataFrameTrain["persons"] = dataFrameTrain["persons"].map(personsMapping)
-dataFrameTest["persons"] = dataFrameTest["persons"].map(personsMapping)
+dataFrame["persons"] = dataFrame["persons"].map(personsMapping)
 
 lugBootMapping = {"small": 1, "med": 2, "big": 3}
-dataFrameTrain["lug_boot"] = dataFrameTrain["lug_boot"].map(lugBootMapping)
-dataFrameTest["lug_boot"] = dataFrameTest["lug_boot"].map(lugBootMapping)
+dataFrame["lug_boot"] = dataFrame["lug_boot"].map(lugBootMapping)
 
 safetyMapping = {"low": 1, "med": 2, "high": 3}
-dataFrameTrain["safety"] = dataFrameTrain["safety"].map(safetyMapping)
-dataFrameTest["safety"] = dataFrameTest["safety"].map(safetyMapping)
+dataFrame["safety"] = dataFrame["safety"].map(safetyMapping)
+
+dataFrameTrain, dataFrameTest = trainTestSplit(dataFrame, testSize = 0.3)
 
 print("Decision Tree - Car Evaluation Dataset")
 
